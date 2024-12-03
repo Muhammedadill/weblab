@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript String and Math Functions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .output {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript String and Math Functions</h1>
+
+    <h2>String Functions</h2>
+    <div class="output" id="stringOutput"></div>
+
+    <h2>Math Functions</h2>
+    <div class="output" id="mathOutput"></div>
+
+    <script>
+        // Demonstrating String object functions
+        let stringOutput = "";
+        let str = "Hello, JavaScript!";
+        
+        stringOutput += `<strong>Original String:</strong> "${str}"<br>`;
+        stringOutput += `<strong>Length:</strong> ${str.length}<br>`;
+        stringOutput += `<strong>Uppercase:</strong> ${str.toUpperCase()}<br>`;
+        stringOutput += `<strong>Lowercase:</strong> ${str.toLowerCase()}<br>`;
+        stringOutput += `<strong>Substring (7, 17):</strong> ${str.substring(7, 17)}<br>`;
+        stringOutput += `<strong>Replace "JavaScript" with "World":</strong> ${str.replace("JavaScript", "World")}<br>`;
+        stringOutput += `<strong>Character at index 7:</strong> ${str.charAt(7)}<br>`;
+        stringOutput += `<strong>Index of "Script":</strong> ${str.indexOf("Script")}<br>`;
+        stringOutput += `<strong>Trim (extra spaces):</strong> "${"   Hello, World!   ".trim()}"<br>`;
+
+        document.getElementById("stringOutput").innerHTML = stringOutput;
+
+        // Demonstrating Math object functions
+        let mathOutput = "";
+
+        mathOutput += `<strong>PI:</strong> ${Math.PI}<br>`;
+        mathOutput += `<strong>Square Root of 16:</strong> ${Math.sqrt(16)}<br>`;
+        mathOutput += `<strong>Absolute of -5:</strong> ${Math.abs(-5)}<br>`;
+        mathOutput += `<strong>Power (2^3):</strong> ${Math.pow(2, 3)}<br>`;
+        mathOutput += `<strong>Round 4.7:</strong> ${Math.round(4.7)}<br>`;
+        mathOutput += `<strong>Floor 4.7:</strong> ${Math.floor(4.7)}<br>`;
+        mathOutput += `<strong>Ceil 4.3:</strong> ${Math.ceil(4.3)}<br>`;
+        mathOutput += `<strong>Random (0 to 1):</strong> ${Math.random()}<br>`;
+        mathOutput += `<strong>Random (1 to 100):</strong> ${Math.floor(Math.random() * 100) + 1}<br>`;
+
+        document.getElementById("mathOutput").innerHTML = mathOutput;
+    </script>
+</body>
+</html>
