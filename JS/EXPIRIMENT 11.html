@@ -1,0 +1,128 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Exam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question p {
+      font-weight: bold;
+    }
+    button {
+      margin: 10px 0;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Online Exam</h1>
+  <form id="examForm">
+    <div class="question" id="q1">
+      <p>1. What is the capital of India?</p>
+      <label><input type="radio" name="q1" value="Delhi"> Delhi</label><br>
+      <label><input type="radio" name="q1" value="Mumbai"> Mumbai</label><br>
+      <label><input type="radio" name="q1" value="Chennai"> Chennai</label><br>
+    </div>
+    <div class="question" id="q2">
+      <p>2. What is 2 + 2?</p>
+      <label><input type="radio" name="q2" value="3"> 3</label><br>
+      <label><input type="radio" name="q2" value="4"> 4</label><br>
+      <label><input type="radio" name="q2" value="5"> 5</label><br>
+    </div>
+    <div class="question" id="q3">
+      <p>3. Who wrote the national anthem of India?</p>
+      <label><input type="radio" name="q3" value="Rabindranath Tagore"> Rabindranath Tagore</label><br>
+      <label><input type="radio" name="q3" value="Sarojini Naidu"> Sarojini Naidu</label><br>
+      <label><input type="radio" name="q3" value="Subhash Chandra Bose"> Subhash Chandra Bose</label><br>
+    </div>
+    <div class="question" id="q4">
+      <p>4. What is the boiling point of water?</p>
+      <label><input type="radio" name="q4" value="90°C"> 90°C</label><br>
+      <label><input type="radio" name="q4" value="100°C"> 100°C</label><br>
+      <label><input type="radio" name="q4" value="110°C"> 110°C</label><br>
+    </div>
+    <div class="question" id="q5">
+      <p>5. Who is known as the Father of the Nation in India?</p>
+      <label><input type="radio" name="q5" value="Mahatma Gandhi"> Mahatma Gandhi</label><br>
+      <label><input type="radio" name="q5" value="Jawaharlal Nehru"> Jawaharlal Nehru</label><br>
+      <label><input type="radio" name="q5" value="Dr. B.R. Ambedkar"> Dr. B.R. Ambedkar</label><br>
+    </div>
+    <div class="question" id="q6">
+      <p>6. What is the national bird of India?</p>
+      <label><input type="radio" name="q6" value="Peacock"> Peacock</label><br>
+      <label><input type="radio" name="q6" value="Sparrow"> Sparrow</label><br>
+      <label><input type="radio" name="q6" value="Pigeon"> Pigeon</label><br>
+    </div>
+    <div class="question" id="q7">
+      <p>7. What is the chemical symbol for water?</p>
+      <label><input type="radio" name="q7" value="O2"> O2</label><br>
+      <label><input type="radio" name="q7" value="H2O"> H2O</label><br>
+      <label><input type="radio" name="q7" value="CO2"> CO2</label><br>
+    </div>
+    <div class="question" id="q8">
+      <p>8. Who was the first Prime Minister of India?</p>
+      <label><input type="radio" name="q8" value="Mahatma Gandhi"> Mahatma Gandhi</label><br>
+      <label><input type="radio" name="q8" value="Jawaharlal Nehru"> Jawaharlal Nehru</label><br>
+      <label><input type="radio" name="q8" value="Lal Bahadur Shastri"> Lal Bahadur Shastri</label><br>
+    </div>
+    <div class="question" id="q9">
+      <p>9. What is the speed of light?</p>
+      <label><input type="radio" name="q9" value="300,000 km/s"> 300,000 km/s</label><br>
+      <label><input type="radio" name="q9" value="150,000 km/s"> 150,000 km/s</label><br>
+      <label><input type="radio" name="q9" value="450,000 km/s"> 450,000 km/s</label><br>
+    </div>
+    <div class="question" id="q10">
+      <p>10. What is the largest planet in our solar system?</p>
+      <label><input type="radio" name="q10" value="Jupiter"> Jupiter</label><br>
+      <label><input type="radio" name="q10" value="Saturn"> Saturn</label><br>
+      <label><input type="radio" name="q10" value="Earth"> Earth</label><br>
+    </div>
+    <button type="button" onclick="submitExam()">Submit</button>
+    <button type="button" onclick="resetExam()">Reset</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    const correctAnswers = {
+      q1: "Delhi",
+      q2: "4",
+      q3: "Rabindranath Tagore",
+      q4: "100°C",
+      q5: "Mahatma Gandhi",
+      q6: "Peacock",
+      q7: "H2O",
+      q8: "Jawaharlal Nehru",
+      q9: "300,000 km/s",
+      q10: "Jupiter"
+    };
+
+    function submitExam() {
+      let score = 0;
+      for (let question in correctAnswers) {
+        const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
+        if (userAnswer && userAnswer.value === correctAnswers[question]) {
+          score++;
+        }
+      }
+      document.getElementById("result").textContent = `Your score is: ${score}/10`;
+    }
+
+    function resetExam() {
+      document.getElementById("examForm").reset();
+      document.getElementById("result").textContent = "";
+    }
+  </script>
+</body>
+</html>
